@@ -1,0 +1,224 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Inventory product item for frozen foods and drinks",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique product identifier"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Product display name"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["frozen_foods", "soft_drinks"],
+          "description": "Product category"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["kg", "pcs", "bag", "crate", "pack"],
+          "description": "Measurement or packaging unit"
+        },
+        "pricePerUnit": {
+          "type": "number",
+          "description": "Selling price per unit in NGN"
+        },
+        "costPerUnit": {
+          "type": "number",
+          "description": "Cost purchase price per unit in NGN"
+        },
+        "stockQuantity": {
+          "type": "number",
+          "description": "Current on-hand stock quantity"
+        },
+        "minStockLevel": {
+          "type": "number",
+          "description": "Minimum stock warning threshold"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Product description"
+        },
+        "imageUrl": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Product thumbnail image URL"
+        }
+      },
+      "required": ["id", "name", "category", "unit", "pricePerUnit", "costPerUnit", "stockQuantity"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Customer record for sales history and loyalty points",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique customer ID"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Full customer name"
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Phone number"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Email address"
+        },
+        "loyaltyPoints": {
+          "type": "number",
+          "description": "Accumulated loyalty reward points"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account creation ISO timestamp"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Customer notes or preferences"
+        },
+        "purchaseCount": {
+          "type": "number",
+          "description": "Total completed purchases"
+        },
+        "totalSpent": {
+          "type": "number",
+          "description": "Total amount spent in NGN"
+        }
+      },
+      "required": ["id", "name", "phone", "loyaltyPoints"]
+    },
+    "Sale": {
+      "title": "Sale",
+      "description": "Completed transaction sales receipt",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique transaction ID"
+        },
+        "receiptNo": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Human-readable receipt number"
+        },
+        "customerId": {
+          "type": "string",
+          "description": "Associated customer ID if registered"
+        },
+        "customerName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Customer name printed on receipt"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Gross total amount before discounts"
+        },
+        "discountAmount": {
+          "type": "number",
+          "description": "Discount applied"
+        },
+        "netAmount": {
+          "type": "number",
+          "description": "Final paid amount in NGN"
+        },
+        "pointsEarned": {
+          "type": "number",
+          "description": "Loyalty points earned from this sale"
+        },
+        "pointsRedeemed": {
+          "type": "number",
+          "description": "Loyalty points redeemed on this sale"
+        },
+        "date": {
+          "type": "string",
+          "maxLength": 20,
+          "description": "Transaction date YYYY-MM-DD"
+        },
+        "month": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Transaction month YYYY-MM"
+        },
+        "year": {
+          "type": "number",
+          "description": "Transaction year"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": ["cash", "pos", "transfer"],
+          "description": "Payment settlement channel"
+        },
+        "printedRef": {
+          "type": "boolean",
+          "description": "Whether receipt was printed"
+        },
+        "cashier": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Attendant or cashier name"
+        }
+      },
+      "required": ["id", "receiptNo", "totalAmount", "netAmount", "date", "paymentMethod"]
+    },
+    "Attendant": {
+      "title": "Attendant",
+      "description": "Store attendant or cashier account",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique attendant ID"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Attendant full name"
+        },
+        "password": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Simple PIN or password"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["manager", "attendant"],
+          "description": "User role"
+        }
+      },
+      "required": ["id", "name", "role"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "#/entities/Product",
+      "description": "Stores product catalog and stock levels"
+    },
+    "/customers/{customerId}": {
+      "schema": "#/entities/Customer",
+      "description": "Stores customer profiles and loyalty points"
+    },
+    "/sales/{saleId}": {
+      "schema": "#/entities/Sale",
+      "description": "Stores completed sales receipts and order history"
+    },
+    "/attendants/{attendantId}": {
+      "schema": "#/entities/Attendant",
+      "description": "Stores attendant staff credentials for POS login"
+    }
+  }
+}

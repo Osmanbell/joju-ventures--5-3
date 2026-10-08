@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    function isValidProduct(data) {
+      return data.id is string
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 100
+        && data.category in ['frozen_foods', 'soft_drinks']
+        && data.unit in ['kg', 'pcs', 'bag', 'crate', 'pack']
+        && data.pricePerUnit is number && data.pricePerUnit >= 0
+        && data.costPerUnit is number && data.costPerUnit >= 0
+        && data.stockQuantity is number;
+    }
+
+    function isValidCustomer(data) {
+      return data.id is string
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 100
+        && data.phone is string && data.phone.size() <= 30
+        && data.loyaltyPoints is number;
+    }
+
+    function isValidSale(data) {
+      return data.id is string
+        && data.receiptNo is string && data.receiptNo.size() > 0 && data.receiptNo.size() <= 50
+        && data.totalAmount is number && data.totalAmount >= 0
+        && data.netAmount is number && data.netAmount >= 0
+        && data.date is string && data.date.size() <= 20
+        && data.paymentMethod in ['cash', 'pos', 'transfer'];
+    }
+
+    function isValidAttendant(data) {
+      return data.id is string
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 100
+        && data.role in ['manager', 'attendant'];
+    }
+
+    // Connection testing
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    // Products catalog
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isValidId(productId) && isValidProduct(request.resource.data);
+      allow delete: if isValidId(productId);
+    }
+
+    // Customers directory
+    match /customers/{customerId} {
+      allow read: if true;
+      allow create, update: if isValidId(customerId) && isValidCustomer(request.resource.data);
+      allow delete: if isValidId(customerId);
+    }
+
+    // Sales transactions
+    match /sales/{saleId} {
+      allow read: if true;
+      allow create: if isValidId(saleId) && isValidSale(request.resource.data);
+      allow update: if isValidId(saleId) && isValidSale(request.resource.data);
+      allow delete: if false; // Invariant: Sales records are audit-immutable
+    }
+
+    // Attendants
+    match /attendants/{attendantId} {
+      allow read: if true;
+      allow create, update: if isValidId(attendantId) && isValidAttendant(request.resource.data);
+      allow delete: if isValidId(attendantId);
+    }
+
+    // Settings & Security
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

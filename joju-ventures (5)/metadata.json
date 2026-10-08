@@ -1,0 +1,6 @@
+{
+  "name": "Joju Ventures",
+  "description": "A high-fidelity full-stack point of sale, customer purchase log, and AI-powered auditing system for frozen foods and soft drinks. Features direct receipt generation, thermal print emulators, and Bluetooth pairing simulations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
