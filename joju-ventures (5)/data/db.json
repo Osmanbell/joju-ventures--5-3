@@ -1,0 +1,242 @@
+{
+  "products": [
+    {
+      "id": "prod-chicken",
+      "name": "Local Broiler Chicken",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 4500,
+      "costPerUnit": 3700,
+      "stockQuantity": 250,
+      "minStockLevel": 50,
+      "description": "Organic hand-dressed broiler chicken cuts"
+    },
+    {
+      "id": "prod-turkey",
+      "name": "Premium Imported Turkey",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 5200,
+      "costPerUnit": 4200,
+      "stockQuantity": 180,
+      "minStockLevel": 40,
+      "description": "Export grade frozen turkey wings and gizzards"
+    },
+    {
+      "id": "prod-titus",
+      "name": "Titus Fish (Mackerel)",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 3800,
+      "costPerUnit": 3100,
+      "stockQuantity": 150,
+      "minStockLevel": 30,
+      "description": "Sea-fresh iced high-fat mackerel (Titus)"
+    },
+    {
+      "id": "prod-panda",
+      "name": "Panda Fish (Fillet)",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 3200,
+      "costPerUnit": 2650,
+      "stockQuantity": 120,
+      "minStockLevel": 25,
+      "description": "Premium skinless white fish sections"
+    },
+    {
+      "id": "prod-kite",
+      "name": "Kite Fish",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 3400,
+      "costPerUnit": 2800,
+      "stockQuantity": 100,
+      "minStockLevel": 25,
+      "description": "Tasty frozen kite fish units"
+    },
+    {
+      "id": "prod-croaker",
+      "name": "Gold Croaker Fish",
+      "category": "frozen_foods",
+      "unit": "kg",
+      "pricePerUnit": 4800,
+      "costPerUnit": 4000,
+      "stockQuantity": 90,
+      "minStockLevel": 20,
+      "description": "Wild-caught golden croaker fish"
+    },
+    {
+      "id": "prod-coke",
+      "name": "Coca-Cola (Pet)",
+      "category": "soft_drinks",
+      "unit": "pcs",
+      "pricePerUnit": 400,
+      "costPerUnit": 320,
+      "stockQuantity": 500,
+      "minStockLevel": 100,
+      "description": "Refreshed 35cl Coca-Cola bottles"
+    },
+    {
+      "id": "prod-fanta",
+      "name": "Fanta Orange (Pet)",
+      "category": "soft_drinks",
+      "unit": "pcs",
+      "pricePerUnit": 400,
+      "costPerUnit": 320,
+      "stockQuantity": 450,
+      "minStockLevel": 100,
+      "description": "Tangy carbonated orange drink"
+    },
+    {
+      "id": "prod-pepsi",
+      "name": "Pepsi Cola",
+      "category": "soft_drinks",
+      "unit": "pcs",
+      "pricePerUnit": 400,
+      "costPerUnit": 320,
+      "stockQuantity": 400,
+      "minStockLevel": 100,
+      "description": "Ice cold Pepsi Cola pet bottles"
+    },
+    {
+      "id": "prod-malt",
+      "name": "Maltina Can",
+      "category": "soft_drinks",
+      "unit": "pcs",
+      "pricePerUnit": 600,
+      "costPerUnit": 500,
+      "stockQuantity": 300,
+      "minStockLevel": 75,
+      "description": "Premium rich malt energy beverage"
+    },
+    {
+      "id": "prod-water",
+      "name": "C-Way Table Water",
+      "category": "soft_drinks",
+      "unit": "pcs",
+      "pricePerUnit": 200,
+      "costPerUnit": 140,
+      "stockQuantity": 600,
+      "minStockLevel": 120,
+      "description": "75cl pure bottle table spring water"
+    },
+    {
+      "id": "prod-sachet",
+      "name": "Pure Sachet Water (Bag)",
+      "category": "soft_drinks",
+      "unit": "bag",
+      "pricePerUnit": 400,
+      "costPerUnit": 250,
+      "stockQuantity": 350,
+      "minStockLevel": 50,
+      "description": "Standard bundles of 20 purified water sachets"
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust-1",
+      "name": "Amina Bello",
+      "phone": "+234 803 123 4567",
+      "email": "amina.b@gmail.com",
+      "loyaltyPoints": 450,
+      "createdAt": "2026-01-10T12:00:00Z",
+      "notes": "Wholesaler client, purchases chicken on weekly basis",
+      "purchaseCount": 15,
+      "totalSpent": 220000
+    },
+    {
+      "id": "cust-2",
+      "name": "Dr. John Okoro",
+      "phone": "+234 812 987 6543",
+      "email": "okorojohn@yahoo.com",
+      "loyaltyPoints": 120,
+      "createdAt": "2026-02-14T09:30:00Z",
+      "notes": "Enjoys Titus Fish & Malt drinks for his family clinic events",
+      "purchaseCount": 4,
+      "totalSpent": 54000
+    },
+    {
+      "id": "cust-3",
+      "name": "Chioma Nwachukwu",
+      "phone": "+234 905 555 1122",
+      "email": "chi.nwachukwu@outlook.com",
+      "loyaltyPoints": 850,
+      "createdAt": "2025-11-05T14:20:00Z",
+      "notes": "Supermarket supplier, monthly bulk order of turkey and sachet bags",
+      "purchaseCount": 22,
+      "totalSpent": 420000
+    },
+    {
+      "id": "cust-4",
+      "name": "Abba Yusuf",
+      "phone": "+234 708 333 4455",
+      "email": "abba_yusuf@gmail.com",
+      "loyaltyPoints": 40,
+      "createdAt": "2026-04-18T16:45:00Z",
+      "notes": "Walk-in client purchasing soft drinks and small fish bags",
+      "purchaseCount": 2,
+      "totalSpent": 18000
+    }
+  ],
+  "sales": [
+    {
+      "id": "sale-1",
+      "receiptNo": "REC-2026-001",
+      "customerId": "cust-1",
+      "customerName": "Amina Bello",
+      "items": [
+        {
+          "productId": "prod-chicken",
+          "name": "Local Broiler Chicken",
+          "quantity": 20,
+          "pricePerUnit": 4500,
+          "totalPrice": 90000
+        },
+        {
+          "productId": "prod-coke",
+          "name": "Coca-Cola (Pet)",
+          "quantity": 24,
+          "pricePerUnit": 400,
+          "totalPrice": 9600
+        }
+      ],
+      "totalAmount": 99600,
+      "discountAmount": 1600,
+      "netAmount": 98000,
+      "pointsEarned": 98,
+      "pointsRedeemed": 0,
+      "date": "2026-05-01",
+      "month": "2026-05",
+      "year": 2026,
+      "paymentMethod": "cash",
+      "printedRef": true
+    }
+  ],
+  "attendants": [
+    {
+      "id": "att-1",
+      "name": "Fatima Abubakar",
+      "password": "123",
+      "role": "attendant"
+    },
+    {
+      "id": "att-2",
+      "name": "Aminu Ibrahim",
+      "password": "123",
+      "role": "attendant"
+    },
+    {
+      "id": "att-3",
+      "name": "Yusuf Haruna",
+      "password": "123",
+      "role": "attendant"
+    },
+    {
+      "id": "att-4",
+      "name": "Mariya Dauda",
+      "password": "123",
+      "role": "attendant"
+    }
+  ]
+}

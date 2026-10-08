@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer utilities {
+  /* Hide standard scrollbars for a clean invoice paper container */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+@keyframes progressCountdown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Print specific styles for thermal receipt printer format */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt-print-area, #thermal-receipt-print-area * {
+    visibility: visible;
+  }
+  .block-print, .block-print * {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  #thermal-receipt-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm; /* Standard default 58mm thermal paper width */
+    padding: 2mm;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    background: white;
+    color: black;
+  }
+  #thermal-receipt-print-area.paper-80mm {
+    width: 80mm;
+    font-size: 11px;
+  }
+  #thermal-receipt-print-area.paper-58mm {
+    width: 58mm;
+    font-size: 10px;
+  }
+}
